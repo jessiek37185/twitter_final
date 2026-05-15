@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./services/web
+    command: python app.py
+    volumes:
+      - ./services/web:/usr/src/app
+    ports:
+      - 9898:5000
+    env_file:
+      - .env.dev
+    environment:
+      DATABASE_URL: postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
+    depends_on:
+      - db
+
+  db:
+    build: ./services/postgres
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data/
+      - ./services/postgres/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+    environment:
+      - POSTGRES_USER=hello_flask
+      - POSTGRES_PASSWORD=hello_flask
+      - POSTGRES_DB=hello_flask_dev
+
+volumes:
+  postgres_data_dev:
+

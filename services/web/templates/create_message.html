@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Post Message — Tweeter{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 500px; margin: 0 auto;">
+    <h1>New Message</h1>
+
+    <form method="POST" action="{{ url_for('create_message') }}">
+        <div class="form-group">
+            <label for="message">What's happening?</label>
+            <textarea id="message" name="message"
+                      maxlength="280"
+                      placeholder="Share something..."
+                      required></textarea>
+            <small style="color:#65676b; font-size:0.8rem;">
+                Max 280 characters
+            </small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+</div>
+{% endblock %}
+

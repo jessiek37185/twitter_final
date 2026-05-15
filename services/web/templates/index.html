@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Home — Tweeter{% endblock %}
+
+{% block content %}
+<h1>All Messages</h1>
+
+{% if messages %}
+    {% for username, message, created_at in messages %}
+    <div class="message-card">
+        <div class="message-meta">
+            <span class="username">@{{ username }}</span>
+            &nbsp;·&nbsp;
+            {{ created_at.strftime('%b %d, %Y at %I:%M %p') if created_at else '' }}
+        </div>
+        <div class="message-body">{{ message }}</div>
+    </div>
+    {% endfor %}
+
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('index', page=page-1) }}">← Previous</a>
+        {% endif %}
+        {% if has_next %}
+            <a href="{{ url_for('index', page=page+1) }}">Next →</a>
+        {% endif %}
+    </div>
+
+{% else %}
+    <div class="empty-state">
+        <p>No messages yet. Be the first to post!</p>
+    </div>
+{% endif %}
+{% endblock %}
+

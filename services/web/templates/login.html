@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Login — Tweeter{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 400px; margin: 0 auto;">
+    <h1>Log In</h1>
+
+    <form method="POST" action="{{ url_for('login') }}">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username"
+                   autocomplete="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            {# IMPORTANT: type="password" hides the characters while typing #}
+            <input type="password" id="password" name="password"
+                   autocomplete="current-password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+
+    <p style="margin-top:14px; font-size:0.9rem; color:#65676b;">
+        Don't have an account?
+        <a href="{{ url_for('create_account') }}" style="color:#1da1f2;">Sign up</a>
+    </p>
+</div>
+{% endblock %}
+

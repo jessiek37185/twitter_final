@@ -1,5 +1,5 @@
 # Twitter Final Project
-[![](https://github.com/Jessiek37185/twitter_final/actions/workflows/tests.yml/badge.svg)](https://github.com/Jessiek37185/twitter_final/actions?query=workflow%3Atests)
+[![](https://github.com/Jessiek37185/twitter_final/actions/workflows/test.yml/badge.svg)](https://github.com/Jessiek37185/twitter_final/actions?query=workflow%3Atest)
 
 
 A Dockerized Twitter-style Flask web application using PostgreSQL full-text search and RUM indexes.

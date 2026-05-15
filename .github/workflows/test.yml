@@ -30,8 +30,8 @@ jobs:
       - name: Check web container is running
         run: docker ps | grep twitter_final-web
 
-      - name: Stop containers
-        run: docker compose down
-
       - name: Run login tests
         run: ./tests/login.sh
+
+      - name: Stop containers
+        run: docker compose down

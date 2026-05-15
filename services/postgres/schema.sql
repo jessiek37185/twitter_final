@@ -22,7 +22,7 @@ CREATE INDEX idx_users_username ON users(username);
 -------------------------------------------------------------------------------
 CREATE TABLE credentials (
     id_credentials  BIGSERIAL PRIMARY KEY,
-    id_users        BIGINT NOT NULL REFERENCES users(id_users) ON DELETE CASCADE,
+    id_users        BIGINT NOT NULL UNIQUE REFERENCES users(id_users) ON DELETE CASCADE,
     password        TEXT NOT NULL   -- stores hashed password, never plaintext
 );
 

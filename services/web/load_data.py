@@ -203,7 +203,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Load data into the twitter clone database')
     parser.add_argument('--source',   type=str, help='Directory with users.csv and tweets.csv')
     parser.add_argument('--generate', action='store_true', help='Generate synthetic data instead')
-    parser.add_argument('--users',    type=int, default=10_000,   help='Number of synthetic users')
+    parser.add_argument('--users',    type=int, default=1_000_000,   help='Number of synthetic users')
     parser.add_argument('--messages', type=int, default=1_000_000, help='Number of synthetic messages')
     args = parser.parse_args()
 

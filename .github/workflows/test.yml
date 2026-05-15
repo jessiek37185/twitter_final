@@ -32,3 +32,6 @@ jobs:
 
       - name: Stop containers
         run: docker compose down
+
+      - name: Run login tests
+        run: ./tests/login.sh
